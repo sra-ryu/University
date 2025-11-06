@@ -13,3 +13,6 @@ mirror xs = xs ++ mirror' xs
     where
         mirror' [] = []
         mirror' (x:xs) = mirror' xs ++ [x]
+
+-- schreibt drop2 Funktion
+-- z.B.: [1,2,3,4] -> [3,4]

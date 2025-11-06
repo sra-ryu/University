@@ -1,4 +1,4 @@
-module Week3.Helper where
+module Helper where
 
 fee :: Int
 fee = 1

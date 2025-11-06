@@ -1,3 +1,6 @@
+module Aufgabe1 where
+import Helper
+
 -- schriebt rep Funktion
 -- z.B.: rep [1,2] 2 -> [1,2,1,2]
 rep :: [a] -> Int -> [a]
@@ -13,6 +16,3 @@ mirror xs = xs ++ mirror' xs
     where
         mirror' [] = []
         mirror' (x:xs) = mirror' xs ++ [x]
-
--- schreibt drop2 Funktion
--- z.B.: [1,2,3,4] -> [3,4]

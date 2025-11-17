@@ -21,3 +21,10 @@ mirror xs = xs ++ mirror' xs
 -- mirror :: [a] -> [a]
 -- mirror [] = []
 -- mirror (x:xs) = [x] ++ mirror xs ++ [x]
+
+-- schreibt drop2 Funktion
+-- z.B.: [1,2,3,4] -> [3,4]
+drop2 :: [a] -> [a]
+drop2 [] = []
+drop2 (_:[]) = []
+drop2(_:_:xs) = xs

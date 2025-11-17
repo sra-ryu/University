@@ -2,11 +2,11 @@ module Aufgabe1 where
 import Helper
 
 -- schriebt rep Funktion
--- z.B.: rep [1,2] 2 -> [1,2,1,2]
-rep :: [a] -> Int -> [a]
-rep _ 0 = []
-rep xs 1 = xs
-rep xs n = xs ++ rep xs (n - 1)
+-- z.B.: rep 2 [1,2] -> [1,2,1,2]
+rep :: Int -> [a] -> [a]
+rep 0 _ = []
+rep 1 xs = xs
+rep n xs = xs ++ rep (n - 1) xs
 
 -- schreibt mirror Funktion
 -- z.B.: [1.2] -> [1,2,2,1]
@@ -28,3 +28,10 @@ drop2 :: [a] -> [a]
 drop2 [] = []
 drop2 (_:[]) = []
 drop2(_:_:xs) = xs
+
+-- schreibt kick Funktion
+-- Input: List vom CommandR
+-- Output: alle Elemente, die kein Chip(Chip = 0) hat.
+kick :: [CommandR] -> [CommandR]
+kick [] = []
+kick (x:xs) = if evalR x > 0 then x:kick xs else kick xs

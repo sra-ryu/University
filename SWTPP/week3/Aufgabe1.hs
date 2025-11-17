@@ -16,3 +16,8 @@ mirror xs = xs ++ mirror' xs
     where
         mirror' [] = []
         mirror' (x:xs) = mirror' xs ++ [x]
+
+-- Musterlösung
+-- mirror :: [a] -> [a]
+-- mirror [] = []
+-- mirror (x:xs) = [x] ++ mirror xs ++ [x]

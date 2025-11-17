@@ -31,7 +31,14 @@ drop2(_:_:xs) = xs
 
 -- schreibt kick Funktion
 -- Input: List vom CommandR
--- Output: alle Elemente, die kein Chip(Chip = 0) hat.
+-- Output: alle Elemente, die kein Chip(Chip = 0, also evalR = 0) haben.
 kick :: [CommandR] -> [CommandR]
 kick [] = []
 kick (x:xs) = if evalR x > 0 then x:kick xs else kick xs
+
+-- schreibt payback Funktion
+-- wenn man im lezten Schritt Chips eingesetzt haben -> nur 'owned' lassen
+payback :: [CommandR] -> [CommandR]
+payback [] = []
+payback ((TakeR owned (ValR _)):xs) = owned:payback xs
+payback (x:xs) = x:payback xs

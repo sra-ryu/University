@@ -32,3 +32,12 @@ evalR (ValR v) = v
 evalR (PutR owned added) = putChips (evalR owned) (evalR added)
 evalR (TakeR owned taken) = takeChips (evalR owned) (evalR taken)
 evalR (WinR a b) = win (evalR a) (evalR b)
+
+isVowel :: Char -> Bool
+isVowel = (`elem` "aeiou")
+
+sqr :: Int -> Int
+sqr = (^ 2)
+
+pot :: Int -> Int
+pot = (2 ^)

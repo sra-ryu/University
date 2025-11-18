@@ -1,8 +1,9 @@
+import Data.Char (ord, chr)
+
 -- input: n
 -- output: n^2
 sqr :: Int -> Int
 sqr = (^ 2)
-
 
 -- input: n
 -- output: 2^n
@@ -22,3 +23,8 @@ pot = (2 ^)
 
 isVowel :: Char -> Bool
 isVowel = (`elem` "aeiou")
+
+-- input: uppercase
+-- output: lowercase
+lower :: Char -> Char
+lower c = chr (ord c + 32)

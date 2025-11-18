@@ -42,3 +42,12 @@ payback :: [CommandR] -> [CommandR]
 payback [] = []
 payback ((TakeR owned (ValR _)):xs) = owned:payback xs
 payback (x:xs) = x:payback xs
+
+-- schreibt share Funktion
+-- von einem Pot(1st Param.) an mehreren Stapeln(2nd Param.) verteilen
+-- abziehen: TakeR
+-- geben: PutR
+share :: CommandR -> [CommandR] -> CommandR -> (CommandR, [CommandR])
+share pot [] _ = (pot, [])
+share pot (p:ps) part = let (restpot, newps) = share (TakeR pot part) (ps) part in
+    (restpot, (PutR p part):newps)

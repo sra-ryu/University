@@ -1,0 +1,14 @@
+/home/mager/.ghcup/ghc/9.0.2/lib/ghc-9.0.2/include/ghcversion.h:
+  hash: b6281754d6dc5c5462a97f01fbffb615a7d9f031384e8e8250fce23e8f43f266
+? /home/mager/Documents/Lehre/SWTPP/WS24/Tutorien/blatt05/mittag/swtpp-casino/.stack-work/dist/x86_64-linux/ghc-9.0.2/build/swtpp-casino-exe/autogen/Paths_swtpp_casino.hs
+: hash: 4617ab07b023782272ebfebdece34a17f72bce1c166bde9cadbf9e75577a6318
+? /home/mager/Documents/Lehre/SWTPP/WS24/Tutorien/blatt05/mittag/swtpp-casino/.stack-work/dist/x86_64-linux/ghc-9.0.2/build/swtpp-casino-exe/autogen/cabal_macros.h
+: hash: fc3e0a6aa6a71e3e925b2658ac4fe2da8bf4ba228a8216a733648bed3f2da1eb
+/home/mager/Documents/Lehre/SWTPP/WS24/Tutorien/blatt05/mittag/swtpp-casino/app/Main.hs:
+  hash: bafe0baac752cbe4f5cd944ac710dc596b32b2d5bc3145e16abb4a2828689f8a
+/home/mager/Documents/Lehre/SWTPP/WS24/Tutorien/blatt05/mittag/swtpp-casino/package.yaml:
+  hash: 84126b0da1db6d258ffc1612cff5385222c493063161cfe70766408c6034ab7e
+/home/mager/Documents/Lehre/SWTPP/WS24/Tutorien/blatt05/mittag/swtpp-casino/swtpp-casino.cabal:
+  hash: 8006d026cd73fd0f4384de6698a93ac3c486105d7cc17fd58f6d7ace027d3906
+/usr/include/stdc-predef.h:
+  hash: cb08cd5d4cc059a90833ac48a284d25016e8d56ded8ad4cd98d8ac59cc5053f3

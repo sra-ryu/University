@@ -6,4 +6,6 @@ University coursework and assignments repository
 
 ### 2025/2026 winter
 
-- **Softwaretechnik und Programmierparadigmen(SWTPP)** - Haskell
+- **Softwaretechnik und Programmierparadigmen(SWTPP)**
+- week1-5: Haskell
+- week6: Prolog

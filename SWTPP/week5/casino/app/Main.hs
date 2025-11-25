@@ -1,6 +1,11 @@
 module Main (main) where
-
-import Lib
+-- import all functions in Casino module
+import Casino
 
 main :: IO ()
-main = someFunc
+main = do
+    let val1 = Val 10
+    let val2 = Val 5
+
+    let putCmd = Put val1 val2
+    putStrLn $ "Put: " ++ toString putCmd ++ " = " ++ show (eval putCmd)

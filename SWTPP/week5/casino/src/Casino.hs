@@ -51,3 +51,31 @@ toString (Put x y) = "(" ++ toString x ++ " + " ++ toString y ++ ")"
 toString (Take x y) = "(" ++ toString x ++ " - " ++ toString y ++ ")"
 toString (Win x y) = "(" ++ toString x ++ " * " ++ toString y ++ ")"
 toString (Sig x) = "signum (" ++ toString x ++ ")"
+
+instance Show Command where
+    show = toString
+
+-- write a function that only accepts positive numbers
+toCommand :: Int -> Command
+toCommand n
+  | n > 0 = Val n
+  | otherwise = error "Command can only accept positive number."
+
+instance Num Command where
+    c1 + c2 = Put c1 c2
+    c1 - c2 = Take c1 c2
+    c1 * c2 = Win c1 c2
+
+    abs c1 = c1
+
+    signum :: Command -> Command
+    signum c1 = Sig c1
+
+    fromInteger x
+        | x >= 0 = Val (fromInteger x)
+
+instance Eq Command where
+    c1 == c2 = eval c1 == eval c2
+
+instance Ord Command where
+    c1 <= c2 = eval c1 <= eval c2

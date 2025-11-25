@@ -1,4 +1,14 @@
-module Casino where
+module Casino 
+  (
+    Command(..)
+    , toCommand
+    , eval
+    , toString
+    , putChips
+    , takeChips
+    , win
+    -- if I want to hide something, don't write here(ex: here fee function)
+  ) where
 
 fee :: Int
 fee = 1

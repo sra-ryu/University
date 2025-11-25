@@ -68,7 +68,6 @@ instance Num Command where
 
     abs c1 = c1
 
-    signum :: Command -> Command
     signum c1 = Sig c1
 
     fromInteger x

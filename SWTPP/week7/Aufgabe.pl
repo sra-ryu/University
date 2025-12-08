@@ -30,10 +30,21 @@ dump(X,Y) :- pretty(X,Y), write("\n"), false.
 connection(A,B) :- directConnection(A,B,_).
 connection(A,B) :- directConnection(A,C,_), connection(C,B).
 
-/* B. Print die Anzahl der Städte auf der Route  */
+/* B. Print die Anzahl der Städte auf der Route.  */
 countRec(A,B,Count) :- directConnection(A,B,_), C is Count +2,
                        write("Weg mit "), write(C), write(" Orten gefunden.").
 countRec(A,B,Count) :- directConnection(A,C,_) Count1 is Count + 1,
                        countRec(C,B,Count1).
 
 count(A,B) :- countRec(A,B,0).
+
+/* C. Berechnen die Distanz zwischen A und B. */
+distance(A,B,Dist) :- directConnection(A,B,Dist).
+distance(A,B,Dist) :- directConnection(A,C,S), distance(C,B,Dist1),
+                      Dist is Dist1 + S.
+
+/* D. Print alle Städte zwischen X und Y. */
+route(X,Y) :- directConnection(X,Y,_),
+              write(Y), write(" "), write(X).
+route(X,Z) :- directConnection(X,Y,_), route(Y,Z), 
+              write(" "), write(X).

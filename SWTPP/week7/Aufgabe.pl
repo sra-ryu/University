@@ -48,3 +48,10 @@ route(X,Y) :- directConnection(X,Y,_),
               write(Y), write(" "), write(X).
 route(X,Z) :- directConnection(X,Y,_), route(Y,Z), 
               write(" "), write(X).
+
+/* E. prüfen, ob X eine Primzahl ist. */
+primeHelper(_,2).
+primeHelper(X,H) :- H2 is H-1, \+ (0 is X mod H2),
+                    primeHelper(X,H2).
+
+prime(X) :- X > 1, primeHelper(X,X).

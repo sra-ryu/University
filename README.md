@@ -8,4 +8,4 @@ University coursework and assignments repository
 
 **Softwaretechnik und Programmierparadigmen(SWTPP)**
 - week 1 ~ 5: Haskell
-- week 6    : Prolog
+- week 6 ~ 7: Prolog

@@ -44,3 +44,6 @@ glimpse(penguins)
 
 ### 12. Remove all redundant elements
 distinct(penguins, species)
+
+### 13. Filter penguins by sex, removing NA values
+filter(penguins, !is.na(sex))

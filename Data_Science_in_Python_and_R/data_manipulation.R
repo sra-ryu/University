@@ -1,4 +1,4 @@
-# ==========================================================
+ # ==========================================================
 # Project: Data Manipulation
 # Script Purpose: review data manipulation
 # Author: me
@@ -16,12 +16,18 @@ glimpse(trade_df)
 
 ### 3. Calculate total trade(imports + exports).
 trade_df <- trade_df |>
-  group_by(country) |>
-  mutate(total_trade = sum(export + import))
+  mutate(total_trade = export + import)
 
 ### 4. Compute the trade openness(total trade / GDP)
 trade_df <- trade_df |>
-  group_by(country) |>
-  mutate(openness = total_trade / GDP_USD)
+  mutate(trade_openness = total_trade / GDP_USD)
 
-### 5. 
+### 5. Which EU country had the highest trade openness in 2019 Q4?
+trade_df |>
+    filter(year == 2019 & eu == "EU" & quarter == 4) |>
+    filter(trade_openness == max(trade_openness, na.rm = TRUE))
+
+### 6. Compute percentage of total trade for each country and quarter in 2019.
+total_trade_percentage_2019 <- trade_df |>
+    filter(year == 2019) |>
+    summarise()

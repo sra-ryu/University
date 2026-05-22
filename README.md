@@ -15,3 +15,9 @@ University coursework and assignments repository
 **Data Science in Python and R**
 - R
 - Python
+
+**Informationssysteme und Datenanalyse(ISDA)**
+- Relationales Modell -> Relationale Algebra -> SQL
+- Transaktionssysteme, Data Warehousing
+- Datenstrom-Management
+- Intro to Data Science (Classification, Clustering)

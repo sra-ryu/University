@@ -32,8 +32,9 @@ def get_station_id(search_term):
 
 def get_bus_delay(stop_id, line_name, output_csv="bus_delays.csv"):
     url = f"{BASE_URL}/stops/{stop_id}/departures"
-    params = {"duration": 30}
+    params = {"duration": 10}
 
+    departures = []
     # If an error occurs, it attempts to connect for next 30 seconds.
     deadline = time.time() + 30
     attempt = 0
@@ -56,18 +57,11 @@ def get_bus_delay(stop_id, line_name, output_csv="bus_delays.csv"):
     else:
         print(f"Skipping stop {stop_id} after 1 minute of retries")
         return None
-
-    response = requests.get(url, params=params)
     
-    if response.status_code != 200:
-        print(f"API Error: {response.status_code}")
-        return None
-
-    departures = response.json().get("departures", [])
     filtered = [d for d in departures if d.get("line", {}).get("name") == line_name]
-
+    
     if not filtered:
-        print(f"No departures found for {line_name}")
+        print(f"No depatures found for {line_name}")
         return None
 
     rows = [{
@@ -103,7 +97,7 @@ for stop_name in stops:
 
 print(stop_ids)
 
-BASE_DIR = "" # set path of directory
+BASE_DIR = "/Users/ryu/Desktop/study/0_Sose2026/Data Science in Python and R/team/data" # set path of directory
 os.makedirs(BASE_DIR, exist_ok=True)
 
 line_name = "M45"

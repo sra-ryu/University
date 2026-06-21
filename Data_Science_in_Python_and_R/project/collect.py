@@ -97,12 +97,12 @@ line_name = "M45"
 output = os.path.join(BASE_DIR, f"bus_delays_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv")
 
 # print for test
-for line_name, stop_ids in BUS_LINES.items():
-    print(f"\n=== Line {line_name} ===")
-    for stop_id in stop_ids:
-        print(f"--- {stop_id} ---")
-        get_bus_delay(stop_id, line_name, output_csv=output)
-        
 # for line_name, stop_ids in BUS_LINES.items():
+#     print(f"\n=== Line {line_name} ===")
 #     for stop_id in stop_ids:
+#         print(f"--- {stop_id} ---")
 #         get_bus_delay(stop_id, line_name, output_csv=output)
+        
+for line_name, stop_ids in BUS_LINES.items():
+    for stop_id in stop_ids:
+        get_bus_delay(stop_id, line_name, output_csv=output)

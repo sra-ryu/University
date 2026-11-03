@@ -21,3 +21,13 @@ University coursework and assignments repository
 - Transaktionssysteme, Data Warehousing
 - Datenstrom-Management
 - Intro to Data Science (Classification, Clustering)
+
+### 2026/2027 Winter
+
+**Large-scale Data Engineering**
+- Course project for *Large-scale Data Engineering* (TU Berlin, DAMS Lab, WiSe 2026/27).
+Work in progress.
+
+**Webtechnologien**
+- HTML
+- CSS

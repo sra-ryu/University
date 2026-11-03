@@ -1,0 +1,7 @@
+# 같은 CSV를 data_type="matrix"로 읽어 보고 어떤 오류가 나는지 확인합니다.
+
+F = read("data/sample.csv", format="csv", data_type="matrix", header=FALSE, sep=",", rows=4, cols=2)
+
+print(toString(F))
+
+# matrix는 숫자(double)만 담을 수 있어서 에러 발생함

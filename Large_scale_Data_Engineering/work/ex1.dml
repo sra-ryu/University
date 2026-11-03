@@ -1,0 +1,5 @@
+# 값이 모두 1인 2×3 matrix를 만들고 sum을 출력합니다.(예상 결과: 6)
+
+A = matrix (1, rows=2, cols=3)
+
+print(sum(A))

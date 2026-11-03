@@ -8,6 +8,29 @@ import time
 
 BASE_URL = "https://v6.bvg.transport.rest"
 
+def get_trip_id(start, end):
+    url = f"{BASE_URL}/trips"
+    params = {
+        "from": start,
+        "to": end,
+        "result": 1
+    }
+
+    response = requests.get(url, params=params)
+
+    if response.status_code != 200:
+        print(f"API Error: HTTP {response.status_code}")
+        return None
+    
+    data = response.json()
+    if not data:
+        print("No results found.")
+        return None
+
+    trip = data[0]
+    print(f"trip id is {trip}")
+    return trip
+
 def get_station_id(search_term):
     url = f"{BASE_URL}/locations"
     params = {
@@ -32,7 +55,7 @@ def get_station_id(search_term):
 
 def get_bus_delay(stop_id, line_name, output_csv="bus_delays.csv"):
     url = f"{BASE_URL}/stops/{stop_id}/departures"
-    params = {"duration": 30}
+    params = {"duration": 10}
 
     # If an error occurs, it attempts to connect for next 30 seconds.
     deadline = time.time() + 30
@@ -93,22 +116,26 @@ def get_bus_delay(stop_id, line_name, output_csv="bus_delays.csv"):
     print(f"Saved to {output_csv}")
 
 # sample
-stops = ["S+U Rathaus Spandau", "U Ruhleben", "S Westend", "U Ernst-Reuter-Platz", "S+U Zoologischer Garten"]
+# stops = ["S+U Rathaus Spandau", "U Ruhleben", "S Westend", "U Ernst-Reuter-Platz", "S+U Zoologischer Garten"]
 
-stop_ids = {}
-for stop_name in stops:
-    stop_id = get_station_id(stop_name)
-    if stop_id:
-        stop_ids[stop_name] = stop_id
+# stop_ids = {}
+# for stop_name in stops:
+#     stop_id = get_station_id(stop_name)
+#     if stop_id:
+#         stop_ids[stop_name] = stop_id
 
-print(stop_ids)
+# print(stop_ids)
 
-BASE_DIR = "" # set path of directory
-os.makedirs(BASE_DIR, exist_ok=True)
+# BASE_DIR = "/Users/dobby/Desktop/university/Sose_26/Praktikum/team/data" # set path of directory
+# os.makedirs(BASE_DIR, exist_ok=True)
 
-line_name = "M45"
-output = os.path.join(BASE_DIR, f"bus_delays_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv")
+# line_name = "M45"
+# output = os.path.join(BASE_DIR, f"bus_delays_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv")
 
-for stop_name, stop_id in stop_ids.items():
-    print(f"\n--- {stop_name} ---")
-    get_bus_delay(stop_id, line_name, output_csv=output)
+# for stop_name, stop_id in stop_ids.items():
+#     print(f"\n--- {stop_name} ---")
+#     get_bus_delay(stop_id, line_name, output_csv=output)
+
+start = "S+U Rathaus Spandau"
+end = "U Ruhleben"
+get_trip_id(start, end)
